@@ -1,7 +1,7 @@
 import java.util.function.Function;
 
 public class Movie {
-    public enum Code {
+    public enum Type {
         CHILDREN(daysRented -> {
             double amount = 1.5;
             if (daysRented > 3)
@@ -23,19 +23,19 @@ public class Movie {
             return price.apply(daysRented);
         }
 
-        Code(Function<Integer, Double> price) {
+        Type(Function<Integer, Double> price) {
             this.price = price;
         }
     }
 
     private final String title;
-    private final Code priceCode;
-    public Movie(String title, Code priceCode) {
+    private final Type priceType;
+    public Movie(String title, Type priceType) {
         this.title = title;
-        this.priceCode = priceCode;
+        this.priceType = priceType;
     }
-    public Code getPriceCode() {
-        return priceCode;
+    public Type getPriceCode() {
+        return priceType;
     }
     public String getTitle (){
         return title;

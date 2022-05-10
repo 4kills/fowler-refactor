@@ -8,12 +8,12 @@ public class MovieTest {
 
     @BeforeEach
     public void setUp() {
-        movie = new Movie("Movie Title", Movie.Code.NEW_RELEASE);
+        movie = new Movie("Movie Title", Movie.Type.NEW_RELEASE);
     }
 
     @Test
     public void getPriceCode() {
-        Assertions.assertEquals(Movie.Code.NEW_RELEASE, movie.getPriceCode());
+        Assertions.assertEquals(Movie.Type.NEW_RELEASE, movie.getPriceCode());
     }
 
     @Test

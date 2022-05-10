@@ -8,7 +8,7 @@ public class RentalTest {
 
     @BeforeEach
     public void setUp() {
-        movie = new Movie("Movie Title", Movie.Code.REGULAR);
+        movie = new Movie("Movie Title", Movie.Type.REGULAR);
         rental = new Rental(movie, 8);
     }
 
