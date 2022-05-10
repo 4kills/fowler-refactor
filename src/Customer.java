@@ -5,15 +5,18 @@ import java.util.*;
 class Customer {
     private final String name;
     private final Vector<Rental> rentals = new Vector<>();
+
     public Customer (String name){
         this.name = name;
-    };
+    }
+
     public void addRental(Rental rental) {
         rentals.addElement(rental);
-    };
+    }
     public String getName (){
         return name;
-    };
+    }
+
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
