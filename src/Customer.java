@@ -21,17 +21,16 @@ class Customer {
         result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
 
         for (Rental each : rentals) {
-            double thisAmount = 0;
             //determine amounts for each line
-            thisAmount = each.price();
+            double price = each.price();
             // add frequent renter points
             frequentRenterPoints ++;
             // add bonus for a two day new release rental
             if ((each.getMovie().getPriceCode() == Movie.Code.NEW_RELEASE) && each.getDaysRented() > 1)
                 frequentRenterPoints ++;
             //show figures for this rental
-            result.append("\t").append(each.getMovie().getTitle()).append("\t").append("\t").append(each.getDaysRented()).append("\t").append(String.valueOf(thisAmount)).append("\n");
-            totalAmount += thisAmount;
+            result.append("\t").append(each.getMovie().getTitle()).append("\t").append("\t").append(each.getDaysRented()).append("\t").append(price).append("\n");
+            totalAmount += price;
         }
         //add footer lines
         result.append("Amount owed is ").append(String.valueOf(totalAmount)).append("\n");
