@@ -1,14 +1,17 @@
 public class Movie {
-    public static final int CHILDREN = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+    public enum Code {
+        CHILDREN,
+        REGULAR,
+        NEW_RELEASE
+    }
+
     private final String title;
-    private final int priceCode;
-    public Movie(String title, int priceCode) {
+    private final Code priceCode;
+    public Movie(String title, Code priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
-    public int getPriceCode() {
+    public Code getPriceCode() {
         return priceCode;
     }
     public String getTitle (){
