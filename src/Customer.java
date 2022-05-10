@@ -8,8 +8,8 @@ class Customer {
     public Customer (String name){
         this.name = name;
     };
-    public void addRental(Rental arg) {
-        rentals.addElement(arg);
+    public void addRental(Rental rental) {
+        rentals.addElement(rental);
     };
     public String getName (){
         return name;
@@ -27,7 +27,7 @@ class Customer {
             // add bonus for a two day new release rental
             if ((each.getMovie().getPriceCode() == Movie.Code.NEW_RELEASE) && each.getDaysRented() > 1)
                 frequentRenterPoints ++;
-            
+
             //show figures for this rental
             result.append("\t").append(each.getMovie().getTitle()).append("\t").append("\t").append(each.getDaysRented()).append("\t").append(price).append("\n");
             totalAmount += price;
