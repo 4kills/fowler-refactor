@@ -4,26 +4,26 @@ public class Movie {
     public enum Type {
         CHILDREN(daysRented -> {
             double amount = 1.5;
-            if (daysRented > 3)
-                amount += (daysRented - 3) * 1.5;
+            if (daysRented.days > 3)
+                amount += (daysRented.days - 3) * 1.5;
             return amount;
         }),
         REGULAR(daysRented -> {
             double amount = 2;
-            if (daysRented > 2)
-                amount += (daysRented - 2) * 1.5;
+            if (daysRented.days > 2)
+                amount += (daysRented.days - 2) * 1.5;
             return amount;
         }),
         NEW_RELEASE(daysRented ->
-                daysRented * 3.0);
+                daysRented.days * 3.0);
 
-        private final Function<Integer, Double> price;
+        private final Function<Rental.RentalDays, Double> price;
 
-        public double getPrice(int daysRented) {
+        public double getPrice(Rental.RentalDays daysRented) {
             return price.apply(daysRented);
         }
 
-        Type(Function<Integer, Double> price) {
+        Type(Function<Rental.RentalDays, Double> price) {
             this.price = price;
         }
     }

@@ -9,7 +9,7 @@ public class RentalTest {
     @BeforeEach
     public void setUp() {
         movie = new Movie("Movie Title", Movie.Type.REGULAR);
-        rental = new Rental(movie, 8);
+        rental = new Rental(movie, new Rental.RentalDays(8));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class RentalTest {
 
     @Test
     public void getDaysRented() {
-        Assertions.assertEquals(8, rental.getDaysRented());
+        Assertions.assertEquals(8, rental.getDaysRented().days);
     }
 }
