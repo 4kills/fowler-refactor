@@ -20,6 +20,8 @@ class Customer {
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
+        final int BONUS_POINT_THRESHOLD = 1;
+
         StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
         result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
 
@@ -28,7 +30,7 @@ class Customer {
             frequentRenterPoints ++;
 
             // add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == Movie.Type.NEW_RELEASE) && each.getDaysRented().days > 1)
+            if ((each.getMovie().getPriceCode() == Movie.Type.NEW_RELEASE) && each.getDaysRented().days > BONUS_POINT_THRESHOLD)
                 frequentRenterPoints ++;
 
             //show figures for this rental
